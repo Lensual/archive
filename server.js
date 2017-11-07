@@ -6,6 +6,7 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 var index = require('./routes/index');
+var article = require('./routes/article');
 
 //load config
 global.config = JSON.parse(fs.readFileSync('./config.json', { encoding: 'utf8' }));
@@ -18,6 +19,7 @@ mongo.connect(config.db_uri, function (err, db) {
 
 //route
 app.use('/', index);
+app.use('/article', article);
 
 var server = app.listen(config.listen_port, config.listen_addr, function () {
     console.log('archive listening at http://%s:%s', server.address().address, server.address().port);
