@@ -1,8 +1,8 @@
 # MongoDB
 
-## archive_db
+## archive_db 数据库
 
-### articles
+### articles 表
 
 #### 字段
 
@@ -13,3 +13,4 @@
 * modify_date
 * author
 * tags
+* category

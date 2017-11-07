@@ -5,9 +5,13 @@ var ObjectId = require('mongodb').ObjectId;
 router.get('/:id', function (req, res, next) {
     db.collection('articles').findOne({ "_id": ObjectId(req.params.id) }, function (err, result) {
         if (err) next(err);
+        //render markdown
+        var marked = require('marked');
+        var content_marked = marked(result.content);
+        
         res.render('article', {
-            site_title: result.title + " - " + config.site_title,
-            content: result.content
+            page_title: result.title + " - " + config.site_title,
+            content: content_marked
         });
     });
 });
