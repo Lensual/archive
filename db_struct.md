@@ -9,8 +9,8 @@
 * title
 * content
 * url
-* date
-* modify_date
-* author
-* tags
-* category
+* date  //Unix timestamp
+* modify_date   //Unix timestamp
+* author    //Array
+* tags  //Array
+* category  //Array
