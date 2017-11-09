@@ -3,8 +3,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
     db.collection('articles').find().toArray(function (err, result) {
-        if (err) next(err);
-
+        if (err) { next(err); return; }
         //add hyperlink url
         result.forEach(function (art) {
             art.url = '/article/' + art._id;

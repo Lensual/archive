@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title= page_title
+    body
+        include header
+        form(action="/article/new", method="post")
+            p title:
+                input(type="text", name="title")
+            p content:
+                input(type="text", name="content")
+            input(type="submit", value="submit")
+        include footer

@@ -11,6 +11,6 @@
 * url
 * date  //Unix timestamp
 * modify_date   //Unix timestamp
-* author    //Array
+* authors    //Array
 * tags  //Array
-* category  //Array
+* categories  //Array
