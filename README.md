@@ -2,6 +2,10 @@
 
 以记笔记目的为主的轻量级博客，使用Markdown语法。
 
+正在开发中。。。
+
+[个人站点](https://archive.lensual.space)
+
 # How To Use
 
 ## Depend

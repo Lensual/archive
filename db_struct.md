@@ -15,17 +15,17 @@
 * tags  //Array
 * categories  //Array
 
-### users
+### users 表
 
-#### 
+#### 字段
 
 * name
 * pwd
 * email
 
-### sessions
+### sessions 表
 
-####
+#### 字段
 
-* id
-* uid
+* id    //sessionId
+* uid   //user's _id (Objectid)
