@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title= page_title
+    body
+        include header
+        form(action="/login", method="post")
+            p user:
+                input(type="text", name="user")
+            p password:
+                input(type="password", name="password")
+            input(type="submit", value="submit")
+        include footer

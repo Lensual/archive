@@ -21,14 +21,14 @@ router.post('/new', function (req, res, next) {
             categories: [{ categroy: "defaultCategroy" }]
         }
         , function (err, result) {
-            if (err) { next(err); return; }
+            if (err) return next(err);
             res.json(result);
         });
 });
 
 router.get('/:id', function (req, res, next) {
     db.collection('articles').findOne({ "_id": ObjectId(req.params.id) }, function (err, result) {
-        if (err) { next(err); return; }
+        if (err) return next(err);
         //render markdown
         var marked = require('marked');
         var content_marked = marked(result.content);
@@ -42,7 +42,7 @@ router.get('/:id', function (req, res, next) {
 
 router.get('/raw/:id', function (req, res, next) {
     db.collection('articles').findOne({ "_id": ObjectId(req.params.id) }, function (err, result) {
-        if (err) { next(err); return; }
+        if (err) return next(err);
         res.contentType('text/plain');
         res.send(result.content);
     });

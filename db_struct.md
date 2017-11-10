@@ -14,3 +14,18 @@
 * authors    //Array
 * tags  //Array
 * categories  //Array
+
+### users
+
+#### 
+
+* name
+* pwd
+* email
+
+### sessions
+
+####
+
+* id
+* uid
