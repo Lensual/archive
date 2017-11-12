@@ -24,6 +24,6 @@
 
 ## systemd daemon
 1. `sudo wget -O /lib/systemd/system/archive.service https://raw.githubusercontent.com/Lensual/archive/master/docs/systemd/archive.service`
-2. replace $NODE_HOME `sed -i "s#\$NODE_HOME#$NODE_HOME#g" /lib/systemd/system/archive.service`
-3. `systemctl enable archive.service`
-4. `systemctl start archive.service`
+2. replace $NODE_HOME `sudo sed -i "s#\$NODE_HOME#$NODE_HOME#g" /lib/systemd/system/archive.service`
+3. `sudo systemctl enable archive.service`
+4. `sudo systemctl start archive.service`
