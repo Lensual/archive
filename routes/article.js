@@ -9,7 +9,7 @@ router.get('/new', function (req, res, next) {
 
 router.post('/new', function (req, res, next) {
     //auth
-    if (!req.uid) return res.status(401).json({ status: "failed" }).end();
+    if (!req.user) return res.status(401).json({ status: "failed" }).end();
     //insert
     db.collection('articles').insert(
         {
@@ -29,7 +29,7 @@ router.post('/new', function (req, res, next) {
 
 router.post('/new/upload', function (req, res, next) {
     //auth
-    if (!req.uid) return res.status(401).json({ status: "failed" }).end();
+    if (!req.user) return res.status(401).json({ status: "failed" }).end();
 
     //parse
     var busboy = new Busboy({ headers: req.headers });
