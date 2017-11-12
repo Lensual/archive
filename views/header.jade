@@ -1,2 +1,15 @@
 header
     h1= page_title
+    - if(user)
+        span Hello! #{user}
+        span
+            a(href="/logout") Logout
+    - else
+        p
+            a(href="/login") Login
+    nav
+        span
+            a(href="/") Home
+        span
+            a(href="..") Back
+hr

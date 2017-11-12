@@ -69,7 +69,7 @@ router.get('/:id', function (req, res, next) {
 
         res.render('article', {
             page_title: result.title + " - " + config.site_title,
-            content: content_marked
+            content: content_marked,
         });
     });
 });

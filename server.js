@@ -12,6 +12,9 @@ mongo.connect(config.db_uri, function (err, db) {
     global.db = db;
 });
 
+//static file
+app.use('/public',express.static('public'));
+
 //view engine
 app.set('views', './views');
 app.set('view engine', 'jade');

@@ -1,0 +1,13 @@
+header h1 {
+    display: inline;
+    margin: 10px;
+}
+
+header span {
+    margin: 10px;
+}
+
+header nav {
+    /* display: inline; */
+    margin: 10px;
+}
