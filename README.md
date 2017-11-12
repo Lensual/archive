@@ -15,10 +15,11 @@
 ## Step
 1. install depends
 2. run `git clone https://github.com/Lensual/archive.git`
-3. edit `config.json`
+3. rename & edit your `config.json.sample` to `config.json`
 4. run `node server.js`
 
 ## config.json
+* `site_title` 站点标题
 * `db_uri` MongoDB地址 "mongodb://[username[:password]@]localhost[:27017]/archive_db"
 * `session_maxAge` Cookie超时时间 默认 600000ms (10mins)
 
