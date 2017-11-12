@@ -4,10 +4,16 @@ html
         title= page_title
     body
         include header
-        form(action=".", method="post")
+        form(action="/article/new", method="post")
             p title:
                 input(type="text", name="title")
             p content:
                 input(type="text", name="content")
             input(type="submit", value="submit")
+
+        form(action="/article/new/upload", method="post", enctype="multipart/form-data")
+            p or upload:
+                input(type="file", name="file")
+            input(type="submit", value="submit")
+            
         include footer
