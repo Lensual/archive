@@ -23,7 +23,7 @@
 * `session_maxAge` Cookie超时时间 默认 600000ms (10mins)
 
 ## systemd daemon
-1. `sudo wget -O /lib/systemd/system/archive.service https://raw.githubusercontent.com/Lensual/archive/master/`
+1. `sudo wget -O /lib/systemd/system/archive.service https://raw.githubusercontent.com/Lensual/archive/master/docs/systemd/archive.service`
 2. replace $NODE_HOME `sed -i "s#\$NODE_HOME#$NODE_HOME#g" /lib/systemd/system/archive.service`
 3. `systemctl enable archive.service`
 4. `systemctl start archive.service`

@@ -1,0 +1,14 @@
+[Unit]
+Description=archive web
+After=network.target
+After=mongodb.service
+
+[Service]
+Type=simple
+User=www
+Group=www
+WorkingDirectory=/data/wwwroot/archive.lensual.space
+ExecStart=$NODE_HOME/bin/node server.js
+
+[Install]
+WantedBy=multi-user.target
