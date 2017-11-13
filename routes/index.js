@@ -8,8 +8,7 @@ router.get('/', function (req, res, next) {
         result.forEach(function (art) {
             art.url = './article/' + art._id;
         });
-
-        res.render('index', { page_title: config.site_title, user: req.user, arts: result, mailto: config.admin[0].email });
+        res.render('index', { sitemeta: req.sitemeta, usermeta: req.usermeta, arts: result });
     });
 });
 

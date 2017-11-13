@@ -4,7 +4,11 @@ var ObjectId = require('mongodb').ObjectId;
 var Busboy = require('busboy');
 
 router.get('/new', function (req, res, next) {
-    res.render('article-edit', { page_title: 'new article -' + config.site_title });
+    res.render('article-edit', {
+        page_title: 'new article -' + config.site_title,
+        sitemeta: req.sitemeta,
+        usermeta: req.usermeta
+    });
 });
 
 router.post('/new', function (req, res, next) {
@@ -69,7 +73,9 @@ router.get('/:id', function (req, res, next) {
 
         res.render('article', {
             page_title: result.title + " - " + config.site_title,
-            content: content_marked,
+            sitemeta: req.sitemeta,
+            usermeta: req.usermeta,
+            content: content_marked
         });
     });
 });

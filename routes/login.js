@@ -33,7 +33,11 @@ function newSession(req, res, next) {
 
 router.get('/', function (req, res, next) {
     if (req.user) return res.status(301).location('../').end();   //if already login
-    res.render('login', { page_title: "login - " + config.site_title });
+    res.render('login', {
+        page_title: "login - " + config.site_title,
+        sitemeta: req.sitemeta,
+        usermeta: req.usermeta
+    });
 });
 
 router.post('/', function (req, res, next) {

@@ -1,15 +1,19 @@
 header
-    h1= page_title
-    - if(user)
-        span Hello! #{user}
+    - if(page_title)
+        h1= page_title
+    - else
+        h1= sitemeta.site_title
+    - if(usermeta.user)
+        span Hello! #{usermeta.user}
         span
             a(href="/logout") Logout
     - else
-        p
+        span
             a(href="/login") Login
     nav
         span
             a(href="/") Home
+        span  | 
         span
             a(href="..") Back
 hr

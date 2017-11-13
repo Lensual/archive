@@ -8,6 +8,9 @@ header span {
 }
 
 header nav {
-    /* display: inline; */
     margin: 10px;
+}
+
+header nav span {
+    margin: initial;
 }

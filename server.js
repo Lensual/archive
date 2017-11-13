@@ -13,7 +13,7 @@ mongo.connect(config.db_uri, function (err, db) {
 });
 
 //static file
-app.use('/public',express.static('public'));
+app.use('/public', express.static('public'));
 
 //view engine
 app.set('views', './views');
@@ -29,13 +29,18 @@ app.use(cookieParser());
 var login = require('./routes/login');
 app.use(login.auth);
 
+//custom middleware
+var sitemeta = require('./middleware/sitemeta');
+var usermeta = require('./middleware/usermeta');
+app.use([sitemeta, usermeta]);
+
 //route
 var index = require('./routes/index');
 var article = require('./routes/article');
 
 app.use('/', index);
 app.use('/article', article);
-app.use('/login',login);
+app.use('/login', login);
 
 //listen
 var server = app.listen(config.listen_port, config.listen_addr, function () {
