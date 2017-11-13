@@ -31,8 +31,12 @@ function newSession(req, res, next) {
     });
 }
 
+router.get('/', function (req, res, next) {
+    if (!req.user) return res.status(302).location('/admin/login').end();   //if not login
+});
+
 router.get('/login', function (req, res, next) {
-    if (req.user) return res.status(301).location('../').end();   //if already login
+    if (req.user) return res.status(302).location('../').end();   //if already login
     res.render('login', {
         page_title: "login - " + config.site_title,
         sitemeta: req.sitemeta,
@@ -41,18 +45,26 @@ router.get('/login', function (req, res, next) {
 });
 
 router.post('/login', function (req, res, next) {
-    if (req.user) return res.status(301).location('../').end();   //if already login
+    if (req.user) return res.status(302).location('../').end();   //if already login
     for (var i in config.admin) {
         if (req.body.user == config.admin[i].name && req.body.password == config.admin[i].pwd) {
             //update session
             return db.collection('sessions').update({ id: req.sessionId }, { $set: { user: config.admin[i].name } }, function (err, result) {
                 if (err) return next(err);
-                res.json({ status: "success" });
+                // res.json({ status: "success" });
+                res.status(302).location('/').end();
             });
         }
     }
     //failed
     res.json({ status: "failed" });
+});
+
+router.get('/logout', function (req, res, next) {
+    if (!req.user) return res.status(302).location('/').end();   //if not login
+    db.collection('sessions').remove({ id: req.usermeta.sessionId }, function (err, result) {
+        res.status(302).location('/').end();
+    });
 });
 
 module.exports = router;
