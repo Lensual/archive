@@ -3,14 +3,14 @@ html
     include head
     body
         include header
-        form(action="/article/new", method="post")
+        form(action="", method="post", id="post_article")
             p title:
-                input(type="text", name="title")
+                input(type="text", name="title", value!=title)
             p content:
-                input(type="text", name="content")
+                textarea(name="content", form="post_article",cols="30", rows="10")!= content
             input(type="submit", value="submit")
 
-        form(action="/article/new/upload", method="post", enctype="multipart/form-data")
+        form(action="?upload=true", method="post", enctype="multipart/form-data")
             p or upload:
                 input(type="file", name="file")
             input(type="submit", value="submit")
