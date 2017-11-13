@@ -33,6 +33,10 @@ function newSession(req, res, next) {
 
 router.get('/', function (req, res, next) {
     if (!req.user) return res.status(302).location('/admin/login').end();   //if not login
+    res.render('admin', {
+        sitemeta: req.sitemeta,
+        usermeta: req.usermeta
+    })
 });
 
 router.get('/login', function (req, res, next) {
