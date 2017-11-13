@@ -26,8 +26,8 @@ var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 //auth
-var login = require('./routes/login');
-app.use(login.auth);
+var admin = require('./routes/admin');
+app.use(admin.auth);
 
 //custom middleware
 var sitemeta = require('./middleware/sitemeta');
@@ -40,7 +40,7 @@ var article = require('./routes/article');
 
 app.use('/', index);
 app.use('/article', article);
-app.use('/login', login);
+app.use('/admin', admin);
 
 //listen
 var server = app.listen(config.listen_port, config.listen_addr, function () {

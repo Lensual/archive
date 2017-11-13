@@ -31,7 +31,7 @@ function newSession(req, res, next) {
     });
 }
 
-router.get('/', function (req, res, next) {
+router.get('/login', function (req, res, next) {
     if (req.user) return res.status(301).location('../').end();   //if already login
     res.render('login', {
         page_title: "login - " + config.site_title,
@@ -40,7 +40,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/login', function (req, res, next) {
     if (req.user) return res.status(301).location('../').end();   //if already login
     for (var i in config.admin) {
         if (req.body.user == config.admin[i].name && req.body.password == config.admin[i].pwd) {
