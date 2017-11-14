@@ -1,3 +1,10 @@
 head
     link(rel="stylesheet", href="/public/style.css", async)
-    title= page_title
+    - if(meta.page_title)
+        title= meta.page_title
+    - else if(meta.page_subTitle)
+        title= meta.page_subTitle + " - " + meta.site_title
+    - else if(meta.art && meta.art.title)
+        title= meta.art.title + " - " + meta.site_title
+    - else
+        title= meta.site_title

@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
         result.forEach(function (art) {
             art.url = './article/' + art._id;
         });
-        res.render('index', { sitemeta: req.sitemeta, usermeta: req.usermeta, arts: result });
+        res.render('index', { meta: req.meta, arts: result });
     });
 });
 

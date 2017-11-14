@@ -25,14 +25,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+//custom middleware
+var meta = require('./models/meta');
+app.use(meta);
+
 //auth
 var admin = require('./routes/admin');
 app.use(admin.auth);
-
-//custom middleware
-var sitemeta = require('./middleware/sitemeta');
-var usermeta = require('./middleware/usermeta');
-app.use([sitemeta, usermeta]);
 
 //route
 var index = require('./routes/index');

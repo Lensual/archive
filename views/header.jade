@@ -1,10 +1,14 @@
 header
-    - if(page_title)
-        h1= page_title
+    - if(meta.page_title)
+        h1= meta.page_title
+    - else if(meta.page_subTitle)
+        h1= meta.page_subTitle + " - " + meta.site_title
+    - else if(meta.art && meta.art.title)
+        h1= meta.art.title + " - " + meta.site_title
     - else
-        h1= sitemeta.site_title
-    - if(usermeta.user)
-        span Hello! #{usermeta.user}
+        h1= meta.site_title
+    - if(meta.user_name)
+        span Hello! #{meta.user_name}
         span
             a(href="/admin/logout") Logout
         span
