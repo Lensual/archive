@@ -59,7 +59,7 @@ router.post('/login', function (req, res, next) {
 
 router.get('/logout', function (req, res, next) {
     if (!req.meta.user_name) return res.status(302).location('/').end();   //if not login
-    db.collection('sessions').remove({ id: req.meta.user_namemeta.sessionId }, function (err, result) {
+    db.collection('sessions').remove({ id: req.meta.user_sessionId }, function (err, result) {
         res.status(302).location('/').end();
     });
 });
