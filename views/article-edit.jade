@@ -5,7 +5,7 @@ html
         include header
         form(action="", method="post", id="post_article")
             p title:
-                input(type="text", name="title", value!=meta.art.title)
+                input(type="text", name="title", value!= meta.art.title)
             p content:
                 textarea(name="content", form="post_article",cols="30", rows="10")!= meta.art.content
             div(style="border: 1px solid black;")

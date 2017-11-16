@@ -15,7 +15,8 @@ router.get('/edit(/:id)?', [function (req, res, next) {
         next()
     });
 }, function (req, res, next) {
-    if (!req.meta.art.title) {
+    if (!req.meta.art) {
+        req.meta.art = new art();
         req.meta.page_subTitle = 'new article';
     }
     //render
