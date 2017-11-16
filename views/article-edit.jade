@@ -8,6 +8,17 @@ html
                 input(type="text", name="title", value!=meta.art.title)
             p content:
                 textarea(name="content", form="post_article",cols="30", rows="10")!= meta.art.content
+            div(style="border: 1px solid black;")
+                p meta:
+                    //- p categories:
+                    //-     input(type="text", name="categories")
+                    p tags:
+                        input(type="text", name="tags")
+                    p date:
+                        input(type="date", name="date")
+                    //- p modify_date:
+                    //-     input(type="date", name="modify_date")
+
             input(type="submit", value="submit")
 
         form(action="?upload=true", method="post", enctype="multipart/form-data")

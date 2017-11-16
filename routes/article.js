@@ -27,8 +27,14 @@ router.post('/edit(/:id)?', [function (req, res, next) {
     if (!req.meta.user_name) return res.status(401).json({ status: "failed" }).end();
     req.meta.art = art();
     if (!req.query.upload) {
+        //normal method
+        //parse meta.art
         req.meta.art.title = req.body.title;
         req.meta.art.content = req.body.content;
+        req.meta.art.date = req.body.date;
+        req.meta.art.modify_date = Math.round(new Date().getTime() / 1000)
+        req.meta.art.author = req.meta.user_name;
+        req.meta.art.tags = req.body.tags.split(',');
         return next();   //goto insert
     }
     //upload method
@@ -55,11 +61,11 @@ router.post('/edit(/:id)?', [function (req, res, next) {
         {
             title: req.meta.art.title,
             content: req.meta.art.content,
-            date: Math.round(new Date().getTime() / 1000),  //Unix Timestamp
+            date: req.meta.art.date,  //Unix Timestamp
             modify_date: Math.round(new Date().getTime() / 1000),
             authors: [{ author: req.meta.user_name }],
-            tags: [{ tag: "defaultTag" }],
-            categories: [{ categroy: "defaultCategroy" }]
+            tags: req.meta.art.tags
+            // categories: [{ categroy: "defaultCategroy" }]
         }
         , function (err, result) {
             if (err) return next(err);
@@ -71,7 +77,10 @@ router.post('/edit(/:id)?', [function (req, res, next) {
         $set: {
             title: req.meta.art.title,
             content: req.meta.art.content,
-            modify_date: Math.round(new Date().getTime() / 1000),
+            date: req.meta.art.date,
+            modify_date: req.meta.art.modify_date,
+            authors: req.meta.art.authors,
+            tags: req.meta.art.tags
         }
     }, function (err, result) {
         if (err) return next(err);
