@@ -10,10 +10,6 @@ html
             //- editor
             div(id="editormd")
                 textarea(style="display:none;", name="content", form="post_article")!= meta.art.content
-                link(rel="stylesheet", href="/public/editor.md/css/editormd.min.css")
-                script(src="/public/js/jquery-3.2.1.min.js")
-                script(src="/public/editor.md/editormd.min.js")
-                script(src="/public/js/editor.js")
         form(action="", method="post", id="post_article")
             div(style="border: 1px solid black;")
                 p meta:
