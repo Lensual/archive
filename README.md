@@ -4,6 +4,8 @@
 
 正在开发中。。。
 
+（暂停开发了一段时间，再反过来看models发现写的好烂）
+
 [个人站点](https://archive.lensual.space)
 
 # How To Use

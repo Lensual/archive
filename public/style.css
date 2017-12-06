@@ -14,3 +14,7 @@ header nav {
 header nav span {
     margin: initial;
 }
+
+html, body {
+    height: 100%;
+}

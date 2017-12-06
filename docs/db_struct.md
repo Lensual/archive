@@ -8,12 +8,10 @@
 
 * title
 * content
-* //url deleted
 * date  //Unix timestamp
 * modify_date   //Unix timestamp
 * authors    //Array String username
 * tags  //Array String
-* //categories  //Array ObjectId deleted
 
 ### sessions 表
 
@@ -21,9 +19,3 @@
 
 * id    //sessionId
 * user
-
-<!-- ### categories
-
-####
-
-* name -->
